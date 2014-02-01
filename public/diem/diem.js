@@ -7,13 +7,29 @@ diem.service('Occurrencies', function($http) {
   });
 });
 
-diem.controller("DayController", function() {
-  
+diem.controller("DayController", function($scope) {
+  $scope.time = moment().subtract('days', $scope.x)
+});
+
+diem.filter('range', function() {
+  return function(val, range) {
+    range = parseInt(range);
+    for (var i=0; i<range; i++)
+      val.push(i);
+    return val;
+  };
 });
 
 diem.controller("DaysController", function($scope, Occurrencies) {
+  var today = new Date();
   $scope.occurrences = [];
   Occurrencies.promise.then(function(data) {
     $scope.occurrences = data;
   })
+});
+
+diem.filter('daysAgo', function () {
+  return function (date) {
+    return moment().subtract('days', date)
+  };
 });

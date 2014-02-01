@@ -4,7 +4,8 @@ var Schema = mongoose.Schema;
 
 var schema = new Schema({
   time: {type:Date, default: Date.now()},
-  kind: String
+  kind: String,
+  path: String
 });
 
 mongoose.model("Occurrence", schema);

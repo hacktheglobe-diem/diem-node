@@ -3,7 +3,7 @@ var mongoose = require('mongoose');
 var Schema = mongoose.Schema;
 
 var schema = new Schema({
-  time: {type:Date, default: Date.now()},
+  time: {type:Date},
   kind: String,
   path: String
 });

@@ -17,9 +17,6 @@
   
   <script type="text/ng-template" id="all.html">
     <div class="col-lg-12" ng-controller="DaysController">
-    {{occurrences}}
-    <br>
-    {{graph}}
       <div class="time_unit" ng-repeat="x in [] | range:30" ng-controller="DayController">
       <a ng-href="#/day/{{time.format('YYYY-MM-DD')}}">
         <div class="time_format col-lg-1">
@@ -42,6 +39,7 @@
   
   <script type="text/javascript" charset="utf-8" src="/components/angular/angular.js"></script>
   <script type="text/javascript" charset="utf-8" src="/components/angular-route/angular-route.js"></script>
+  <script type="text/javascript" charset="utf-8" src="/components/underscore/underscore.js"></script>
   <script type="text/javascript" charset="utf-8" src="/components/moment/moment.js"></script>
   <script type="text/javascript" charset="utf-8" src="/diem/diem.js"></script>
 </body>

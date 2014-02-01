@@ -1,4 +1,24 @@
-var diem = angular.module('diem', []);
+var diem = angular.module('diem', ['ngRoute']);
+
+diem.config(function($routeProvider, $locationProvider) {
+
+  //$locationProvider.html5Mode(true);
+  $routeProvider.
+    when('/', {
+      controller: 'HomeController',
+      templateUrl: 'all.html'
+    }).
+    when('/day/:day', {
+      controller: 'DayController',
+      templateUrl: 'day.html'
+    });
+});
+
+diem.controller('MainController', function($scope, $location) {
+  $scope.isRoute = function(location) {
+    return $location.path() == location;
+  }
+});
 
 diem.service('Occurrencies', function($http) {
   _this = this;
@@ -6,6 +26,10 @@ diem.service('Occurrencies', function($http) {
     return _this.data = response.data;
   });
 });
+
+diem.controller("HomeController", function($scope) {
+});
+
 
 diem.controller("DayController", function($scope) {
   $scope.time = moment().subtract('days', $scope.x)

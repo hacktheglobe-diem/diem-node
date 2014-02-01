@@ -5,10 +5,20 @@
   <link rel="stylesheet" href="/diem/css/diem.css" type="text/css" media="screen" title="no title" charset="utf-8">
 </head>
 <body>
-  <div class="container">
-    <h3>Hello</h3>
+  <div class="container" ng-controller="MainController">
+    <h3 ng-show="isRoute('/')">Hello</h3>
+    <a ng-show="!isRoute('/')" href="/"><h3><i class="glyphicon glyphicon-chevron-left"></i> Back</h3></a>
+    <div ng-view></div>
+  </div>
+  
+  <script type="text/ng-template" id="day.html">
+      <h2>First View</h2>
+  </script>
+  
+  <script type="text/ng-template" id="all.html">
     <div class="col-lg-12" ng-controller="DaysController">
       <div class="time_unit" ng-repeat="x in [] | range:30" ng-controller="DayController">
+      <a href="#/day/1">
         <div class="time_format col-lg-1">
           <div class="time_format_ddd">{{time.format('ddd')}}</div>
           <div class="time_format_D">{{time.format('D')}}</div>
@@ -22,11 +32,13 @@
              <circle ng-attr-cx="{{(100-margin)*(4/5) + margin}}%" cy="50%" ng-attr-r="{{(data[x][4]*50)/maximum || 0}}" class="circle_5" />
           </svg> 
         </div>
+        </a>
       </div>
     </div>
-    </div>
-  </div>
+  </script>
+  
   <script type="text/javascript" charset="utf-8" src="/components/angular/angular.js"></script>
+  <script type="text/javascript" charset="utf-8" src="/components/angular-route/angular-route.js"></script>
   <script type="text/javascript" charset="utf-8" src="/components/moment/moment.js"></script>
   <script type="text/javascript" charset="utf-8" src="/diem/diem.js"></script>
 </body>

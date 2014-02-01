@@ -48,8 +48,10 @@ diem.controller("DaysController", function($scope, Occurrencies) {
   $scope.data = [[0,1,2,3,4],[3,1,2,1,9],[1,1,2,3,1],[0,1,2,3,4],[0,1,2,3,4],[0,1,2,3,4],[0,1,2,3,4],[0,1,2,3,4],[0,1,2,3,4],[0,1,2,3,4],[0,1,2,3,4],[0,1,2,3,4],[0,1,2,3,4],[0,1,2,3,4],[0,1,2,3,4]]
   $scope.maximum = Math.max.apply(Math,$scope.data.map(function(o){return Math.max.apply(Math,o)}));
   $scope.occurrences = [];
+  $scope.graphs = []
   Occurrencies.promise.then(function(data) {
     $scope.occurrences = data;
+    $scope.graphs = data;
   })
 });
 

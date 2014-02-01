@@ -1,4 +1,4 @@
-<html ng-app="angular">
+<html ng-app="diem">
 <head>
   <title>Diem</title>
   <link rel="stylesheet" href="/components/bootstrap/dist/css/bootstrap.css" type="text/css" media="screen" title="no title" charset="utf-8">
@@ -8,10 +8,13 @@
   <div class="container">
     <h3>Hello</h3>
     <div class="col-lg-12" ng-controller="DaysController">
+      {{occurrences}}
       <div ng-controller="DayController">
       </div>
     </div>
     </div>
   </div>
+  <script type="text/javascript" charset="utf-8" src="/components/angular/angular.js"></script>
+  <script type="text/javascript" charset="utf-8" src="/diem/diem.js"></script>
 </body>
 </html>

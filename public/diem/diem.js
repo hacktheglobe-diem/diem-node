@@ -21,7 +21,8 @@ diem.filter('range', function() {
 });
 
 diem.controller("DaysController", function($scope, Occurrencies) {
-  var today = new Date();
+  $scope.data = [[0,1,2,3,4],[3,1,2,1,4],[1,1,2,3,1],[0,1,2,3,4],[0,1,2,3,4],[0,1,2,3,4],[0,1,2,3,4],[0,1,2,3,4],[0,1,2,3,4],[0,1,2,3,4],[0,1,2,3,4],[0,1,2,3,4],[0,1,2,3,4],[0,1,2,3,4],[0,1,2,3,4]]
+  $scope.maximum = Math.max.apply(Math,$scope.data.map(function(o){return Math.max.apply(Math,o)}));
   $scope.occurrences = [];
   Occurrencies.promise.then(function(data) {
     $scope.occurrences = data;

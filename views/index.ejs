@@ -15,11 +15,11 @@
         </div>
         <div class="graph col-lg-10">
           <svg xmlns="http://www.w3.org/2000/svg" version="1.1" width="100%" height="100px" ng-init="margin = 10">
-             <circle ng-attr-cx="{{(100-margin)*(0/5) + margin}}%" cy="50%" r="1" fill="green" />
-             <circle ng-attr-cx="{{(100-margin)*(1/5) + margin}}%" cy="50%" r="10" fill="orange" />
-             <circle ng-attr-cx="{{(100-margin)*(2/5) + margin}}%" cy="50%" r="50" fill="green" />
-             <circle ng-attr-cx="{{(100-margin)*(3/5) + margin}}%" cy="50%" r="30" fill="yellow" />
-             <circle ng-attr-cx="{{(100-margin)*(4/5) + margin}}%" cy="50%" r="35" fill="purple" />
+             <circle ng-attr-cx="{{(100-margin)*(0/5) + margin}}%" cy="50%" ng-attr-r="{{(data[x][0]*50)/maximum || 0}}" class="circle_1" />
+             <circle ng-attr-cx="{{(100-margin)*(1/5) + margin}}%" cy="50%" ng-attr-r="{{(data[x][1]*50)/maximum || 0}}" class="circle_2" />
+             <circle ng-attr-cx="{{(100-margin)*(2/5) + margin}}%" cy="50%" ng-attr-r="{{(data[x][2]*50)/maximum || 0}}" class="circle_3" />
+             <circle ng-attr-cx="{{(100-margin)*(3/5) + margin}}%" cy="50%" ng-attr-r="{{(data[x][3]*50)/maximum || 0}}" class="circle_4" />
+             <circle ng-attr-cx="{{(100-margin)*(4/5) + margin}}%" cy="50%" ng-attr-r="{{(data[x][4]*50)/maximum || 0}}" class="circle_5" />
           </svg> 
         </div>
       </div>

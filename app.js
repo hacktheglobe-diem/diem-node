@@ -35,11 +35,20 @@ app.get('/api/occurrences', function(req, res) {
 
 app.post('/api/occurrences', function(req, res) {
   console.log("/api/occurrences");
-  var occurrence = new Occurrence({time: req.body.time, kind: req.body.kind, path: req.body.path});
-  occurrence.save(function(err) {
-    if (err) res.send(500);
-    res.json({status: "OK"});
-  })
+  
+  var array;
+  if (req.body.occurrences) {
+    Occurrence.create(req.body.occurrences, function (err) {
+      if (err) res.send(500);
+      res.json({status: "OK"});
+    }); 
+  } else {
+    var occurrence = new Occurrence({time: req.body.time, kind: req.body.kind, path: req.body.path});
+    occurrence.save(function(err) {
+      if (err) res.send(500);
+      res.json({status: "OK"});
+    }) 
+  }
 })
 
 var port = process.env.PORT || 1200;

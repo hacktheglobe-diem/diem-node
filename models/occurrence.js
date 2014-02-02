@@ -6,7 +6,7 @@ var schema = new Schema({
   time: {type:Date},
   kind: String,
   path: String,
-  eventId: {type:Number, unique: true}
+  eventId: {type:Number, unique: true, required: true}
 });
 
 mongoose.model("Occurrence", schema);

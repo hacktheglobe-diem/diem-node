@@ -23,12 +23,11 @@
           </svg>
         </div>
       </div>
-      {{directories['public'].count}}
       <div class="punchcard" ng-repeat="pair in directories_pairs" ng-init="index = $index">
         <div class="title col-lg-1">{{pair[0]}}</div>
         <div class="punch col-lg-11">
           <svg xmlns="http://www.w3.org/2000/svg" version="1.1" width="100%" height="50px" ng-init="margin = 10">
-            <rect ng-repeat="punch in directories[pair[0]].count" x="0" y="10" height="30" ng-attr-width="{{100*(punch.secs/(24*60*1000))}}" class="circle_{{index}}"/>
+            <rect ng-repeat="punch in directories[pair[0]].count" ng-attr-x="{{100*(today_end - (punch.last_time - punch.secs))/(24*60*60*1000)}}%" y="10" height="30" ng-attr-width="{{100*(punch.secs/(24*60*60*1000))}}%" class="circle_{{index}}"/>
           </svg>
         </div>
       </div>

@@ -137,8 +137,8 @@ diem.controller("DaysController", function($scope, Occurrencies) {
 
 });
 
-diem.filter('daysAgo', function () {
+diem.filter('format', function () {
   return function (date) {
-    return moment().subtract('days', date)
+    return moment(date).format()
   };
 });

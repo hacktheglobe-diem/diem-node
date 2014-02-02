@@ -6,11 +6,16 @@
 </head>
 <body>
   <div class="container" ng-controller="MainController">
-    <h3 ng-show="isRoute('/')">Hello</h3>
+    <h1 ng-show="isRoute('/')">NICOLA GRECO</h1>
     <a ng-show="!isRoute('/')" href="/"><h3><i class="glyphicon glyphicon-chevron-left"></i> Back</h3></a>
     <div ng-view></div>
   </div>
-  
+  <script type="text/ng-template" id="diem.html">
+  <div>
+    <h1 class="the_diem">Diem</h1>
+    <h1>Weapon of mass production</h1>
+  </div>
+  </script>
   <script type="text/ng-template" id="day.html">
     <div class="col-lg-12">
       <h1>{{today}}</h1>

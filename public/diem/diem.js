@@ -8,11 +8,17 @@ diem.config(function($routeProvider, $locationProvider) {
       controller: 'HomeController',
       templateUrl: 'all.html'
     }).
+    when('/diem', {
+      controller: 'DiemController',
+      templateUrl: 'diem.html'
+    }).
     when('/day/:today', {
       controller: 'OneDayController',
       templateUrl: 'day.html'
     });
 });
+
+diem.controller('DiemController', function($scope) {});
 
 diem.controller('TickerController', function($scope) {
   $scope.setHeight = function(hour) {

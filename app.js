@@ -40,15 +40,15 @@ app.post('/api/occurrences', function(req, res) {
   if (req.body.occurrences) {
     Occurrence.create(req.body.occurrences, function (err) {
       console.log(err)
-      if (err) res.send(500);
+      if (err) res.json(500, err);
       res.json({status: "OK"});
     }); 
   } else {
     var occurrence = new Occurrence({time: req.body.time, kind: req.body.kind, path: req.body.path, eventId: req.body.eventId});
     console.log("string", req.body.time);
-    occurrence.save(function(err) {
+    occurrence.json(function(err) {
       console.log(err)
-      if (err) res.send(500);
+      if (err) res.json(500, err);
       res.json({status: "OK"});
     });
   }

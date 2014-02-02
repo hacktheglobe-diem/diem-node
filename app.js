@@ -52,7 +52,7 @@ app.post('/api/occurrences', function(req, res) {
       res.json({status: "OK"});
     });
   }
-})
+});
 
 var port = process.env.PORT || 1200;
 var server = http.createServer(app).listen(port, function () {

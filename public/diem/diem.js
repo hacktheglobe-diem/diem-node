@@ -80,8 +80,8 @@ diem.filter('range', function() {
 });
 
 var treeCount = function (data, interval) {
-  console.log("raw", data)
-  data = _.sortBy(data, function(obj) {return (new Date(obj.time)).getTime()});
+  var data = _.sortBy(data, function(obj) {return (new Date(obj.time)).getTime()});
+
   var directories = {};
   for (var i=0; i < data.length; i++) {
     var paths = data[i].path.substr(1).split('/');

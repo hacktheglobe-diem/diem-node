@@ -58,9 +58,12 @@ diem.controller("HomeController", function($scope) {
 
 diem.controller("OneDayController", function($scope, $routeParams) {
   $scope.today = moment($routeParams.today).format('ddd D MMM YYYY');
-  $scope.today_start = new Date(moment($scope.today_start).startOf('day')).getTime();
-  $scope.today_end = new Date(moment($scope.today_start).endOf('day')).getTime();
-  console.log($scope.today_start, $scope.today_end);
+  $scope.today_start = new Date(moment($scope.today).startOf('day')).getTime();
+  $scope.today_end = new Date(moment($scope.today).endOf('day')).getTime();
+  console.log($scope.today_start, moment($scope.today_start).startOf('day').format(), $scope.today_end, moment($scope.today).endOf('day').format());
+  $scope.scaleBy24h = function(seconds) {
+    return 100*(seconds)/(24*60*60*1000)
+  }
 });
 
 diem.controller("DayController", function($scope) {

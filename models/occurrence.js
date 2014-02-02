@@ -5,7 +5,8 @@ var Schema = mongoose.Schema;
 var schema = new Schema({
   time: {type:Date},
   kind: String,
-  path: String
+  path: String,
+  eventId: {type:Number, unique: true}
 });
 
 mongoose.model("Occurrence", schema);

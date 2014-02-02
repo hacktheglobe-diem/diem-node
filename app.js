@@ -44,7 +44,7 @@ app.post('/api/occurrences', function(req, res) {
       res.json({status: "OK"});
     }); 
   } else {
-    var occurrence = new Occurrence({time: req.body.time, kind: req.body.kind, path: req.body.path});
+    var occurrence = new Occurrence({time: req.body.time, kind: req.body.kind, path: req.body.path, eventId: req.body.eventId});
     console.log("string", req.body.time);
     occurrence.save(function(err) {
       console.log(err)
